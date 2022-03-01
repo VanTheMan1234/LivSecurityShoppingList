@@ -13,6 +13,8 @@
 		6110BCE727CE0B1F003A816E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6110BCE527CE0B1F003A816E /* Main.storyboard */; };
 		6110BCE927CE0B21003A816E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6110BCE827CE0B21003A816E /* Assets.xcassets */; };
 		6110BCEC27CE0B21003A816E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6110BCEA27CE0B21003A816E /* LaunchScreen.storyboard */; };
+		6142B12F27CE22E300CB6FFA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6142B12E27CE22E300CB6FFA /* CloudKit.framework */; };
+		6142B13127CE5BE800CB6FFA /* CloudKitEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6142B13027CE5BE800CB6FFA /* CloudKitEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		6110BCE827CE0B21003A816E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6110BCEB27CE0B21003A816E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6110BCED27CE0B21003A816E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6142B12C27CE22DF00CB6FFA /* LivSecurityShoppingList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LivSecurityShoppingList.entitlements; sourceTree = "<group>"; };
+		6142B12E27CE22E300CB6FFA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6142B13027CE5BE800CB6FFA /* CloudKitEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6142B12F27CE22E300CB6FFA /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 			children = (
 				6110BCDE27CE0B1F003A816E /* LivSecurityShoppingList */,
 				6110BCDD27CE0B1F003A816E /* Products */,
+				6142B12D27CE22E300CB6FFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +63,8 @@
 		6110BCDE27CE0B1F003A816E /* LivSecurityShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				6142B13027CE5BE800CB6FFA /* CloudKitEnums.swift */,
+				6142B12C27CE22DF00CB6FFA /* LivSecurityShoppingList.entitlements */,
 				6110BCDF27CE0B1F003A816E /* AppDelegate.swift */,
 				6110BCE127CE0B1F003A816E /* SceneDelegate.swift */,
 				6110BCE327CE0B1F003A816E /* ViewController.swift */,
@@ -65,6 +74,14 @@
 				6110BCED27CE0B21003A816E /* Info.plist */,
 			);
 			path = LivSecurityShoppingList;
+			sourceTree = "<group>";
+		};
+		6142B12D27CE22E300CB6FFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6142B12E27CE22E300CB6FFA /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +157,7 @@
 			files = (
 				6110BCE427CE0B1F003A816E /* ViewController.swift in Sources */,
 				6110BCE027CE0B1F003A816E /* AppDelegate.swift in Sources */,
+				6142B13127CE5BE800CB6FFA /* CloudKitEnums.swift in Sources */,
 				6110BCE227CE0B1F003A816E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +305,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LivSecurityShoppingList/LivSecurityShoppingList.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZB6R94XP6K;
@@ -304,6 +324,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.van.LivSecurityShoppingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,6 +336,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LivSecurityShoppingList/LivSecurityShoppingList.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZB6R94XP6K;
@@ -332,6 +355,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.van.LivSecurityShoppingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
