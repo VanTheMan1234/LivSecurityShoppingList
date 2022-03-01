@@ -4,7 +4,7 @@
 //
 //  Created by Vanoshan  Ramdhani on 2022/03/01.
 //
-
+import CloudKit
 import UIKit
 
 @main
