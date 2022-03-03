@@ -104,6 +104,24 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let record = CKRecord(recordType: RecordTypes.ShoppingList)
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            Database.databaseShoppingList.delete(withRecordID: record.recordID) { (deletedRecordID, error) in
+                if error == nil {
+                    print("Record Deleted")
 
+                } else {
+                    print("Record Not Deleted")
+                }
+
+            }
+        }
+    }
 }
+    
+
 
