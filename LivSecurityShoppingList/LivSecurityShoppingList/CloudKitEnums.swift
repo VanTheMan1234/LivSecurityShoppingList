@@ -7,6 +7,7 @@
 import CloudKit
 import UIKit
 
+//enums used for calling the database
 enum Database{
     static let databaseShoppingList = CKContainer(identifier: "iCloud.iOSShopping").publicCloudDatabase
 }
