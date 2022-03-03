@@ -22,11 +22,11 @@ The one part of functionality i was not able to get right was the delete functio
 but i was not successful in deleting it from the database. 
 
 I've included in the README a short recording demo of the app to show the displaying of data from the database, as well as adding a record to the database and 
-the functionality of deleting.
+the functionality of deleting. I've also attached a screenshot of the iCloud Database.
 
 https://user-images.githubusercontent.com/21314284/156596896-4a88a165-41ca-4751-93a2-b2a1a15e564a.mp4
 
-Screenshot if the iCloud Database: 
+Screenshot of the iCloud Database: 
 <img width="1417" alt="Screenshot 2022-03-03 at 17 38 48" src="https://user-images.githubusercontent.com/21314284/156598400-7529ba2d-a307-4840-a5f3-5f6cb139a5be.png">
 
 
