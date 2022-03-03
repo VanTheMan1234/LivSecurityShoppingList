@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     let cellIdentifier = "cellIdentifier"
     let control = UIRefreshControl()
     
+    //creating the tableview
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
@@ -25,13 +26,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         title = "Shopping List"
         view.addSubview(tableView)
         tableView.dataSource = self
+        //adding the pullToRefresh function to the UIRefreshControl()
         control.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         tableView.refreshControl = control
+        //adding the didTapAdd function to the button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         fetchItems()
     }
     
     //MARK: - Database Queries
+    //fetches all the items in the Database
     @objc func fetchItems(){
         let query = CKQuery(recordType: RecordTypes.ShoppingList, predicate: NSPredicate(value: true))
         Database.databaseShoppingList.perform(query, inZoneWith: nil) { [weak self]records, error in
@@ -39,12 +43,12 @@ class ViewController: UIViewController, UITableViewDataSource {
                 return
             }
             DispatchQueue.main.sync {
-                self?.items = records.compactMap({$0.value(forKey: Records.shoppingItem) as? String}).sorted()
+                self?.items = records.compactMap({$0.value(forKey: Records.shoppingItem) as? String})
                 self?.tableView.reloadData()
             }
         }
     }
-    
+    //Refreshes the table and gets the items from the database
     @objc func pullToRefresh(){
         tableView.refreshControl?.beginRefreshing()
         let query = CKQuery(recordType: RecordTypes.ShoppingList, predicate: NSPredicate(value: true))
@@ -61,6 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    //saves a new item to the Database
     @objc func saveItem(name: String){
         let record = CKRecord(recordType: RecordTypes.ShoppingList)
         record.setValue(name, forKey: Records.shoppingItem)
@@ -70,11 +75,11 @@ class ViewController: UIViewController, UITableViewDataSource {
                     self?.fetchItems()
                 }
             }
-            
         }
     }
     
     //MARK: - Tapped Add Button
+    //Tapp button functionality to save a new item to the Database
     @objc func didTapAdd(){
         let alert = UIAlertController(title: "Add Shopping List Item", message: nil, preferredStyle: .alert)
         alert.addTextField{ field in
@@ -85,7 +90,6 @@ class ViewController: UIViewController, UITableViewDataSource {
             if let field = alert.textFields?.first, let text = field.text, !text.isEmpty{
                 self?.saveItem(name: text)
             }
-            
         }))
         present(alert, animated: true)
     }
@@ -94,17 +98,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-
+    //sets the text of each row of the items in the Database
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
-    
+    //returns the number of rows to show
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+    //Swipe to delete functionality
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let record = CKRecord(recordType: RecordTypes.ShoppingList)
         if editingStyle == UITableViewCell.EditingStyle.delete {
