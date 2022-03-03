@@ -26,3 +26,7 @@ the functionality of deleting.
 
 https://user-images.githubusercontent.com/21314284/156596896-4a88a165-41ca-4751-93a2-b2a1a15e564a.mp4
 
+Screenshot if the iCloud Database: 
+<img width="1417" alt="Screenshot 2022-03-03 at 17 38 48" src="https://user-images.githubusercontent.com/21314284/156598400-7529ba2d-a307-4840-a5f3-5f6cb139a5be.png">
+
+
